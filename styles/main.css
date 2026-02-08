@@ -1,0 +1,263 @@
+/* =========================
+   CSS VARIABLES (Theme)
+   ========================= */
+:root {
+  /* Colors */
+  --color-bg: hsl(47, 88%, 63%);
+  --color-text: hsl(0, 0%, 42%);
+  --color-primary-gray-500: hsl(0, 0%, 42%);
+  --color-primary-gray-950: hsl(0, 0%, 7%);
+
+  /* Typography */
+  --font-base: 'Figtree', sans-serif;
+  --font-size-base: 1rem;
+  --line-height-base: 1.5;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+
+  /* Layout */
+  --max-width: 1440px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+}
+
+/* =========================
+   RESET / BASE
+   ========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* Media defaults */
+img,
+picture,
+video,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* =========================
+   LAYOUT BLOCKS (BEM)
+   ========================= */
+
+/* Block: container */
+.container {
+  width: 100%;
+  padding-inline: var(--space-3);
+  margin-inline: auto;
+}
+
+/* Block: layout */
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Elements */
+.layout__main {
+  width: 100%;
+}
+
+.layout__aside {
+  width: 100%;
+}
+
+/* Example sections */
+header,
+main,
+footer {
+  padding-block: var(--space-4);
+}
+
+/* =========================
+   COMPONENT BLOCKS (BEM)
+   ========================= */
+
+/* Block: button */
+.button {
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Modifiers */
+.button--secondary {
+  background-color: var(--color-secondary);
+}
+
+.button--outline {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+/* Block: card */
+.card {
+  border: 1px solid var(--color-primary-gray-950);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  background-color: #fff;
+  max-width: 24rem;
+  box-shadow: 8px 8px 0px var(--color-primary-gray-950);
+}
+
+/* Elements */
+.card__image {
+  border-radius: var(--radius-md);
+  width: 100%;
+}
+
+.card__body {
+  margin-block-start: var(--space-5);
+  color: var(--color-primary-gray-950);
+}
+
+.card__content * + * {
+  margin-block-start: var(--space-3);
+}
+
+.card__eyebrow {
+  background-color: var(--color-bg);
+  font-size: 0.75rem;
+  font-weight: 900;
+  padding-inline: var(--space-3);
+  padding-block: var(--space-1);
+  border-radius: var(--radius-sm);
+  display: inline-block;
+}
+
+.card__publish-date {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.card__title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  transition: color 0.3s ease;
+}
+
+.card__title:hover {
+  color: var(--color-bg);
+  cursor: pointer;
+}
+
+.card__description {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-primary-gray-500);
+}
+
+.card__author {
+  margin-block-start: var(--space-5);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.card__author-photo {
+  width: 32px;
+  height: 32px;
+}
+
+.card__author-name {
+  font-size: 14px;
+  font-weight: 900;
+}
+
+/* =========================
+   TABLET (≥ 768px)
+   ========================= */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  /* .layout {
+    flex-direction: row;
+  }
+
+  .layout__aside {
+    width: 30%;
+  }
+
+  .layout__main {
+    width: 70%;
+  } */
+}
+
+/* =========================
+   DESKTOP (≥ 1024px)
+   ========================= */
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--max-width);
+  }
+}
+
+/* =========================
+    UTILITY CLASSES
+      (Use sparingly, only for one-off cases)
+   ========================= */
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* =========================
+   CUSTOM CSS (BEM ONLY)
+   ========================= */
+/*
+  👉 Add new Blocks here (e.g. .hero, .navbar, .footer)
+  👉 Add Elements with __ (e.g. .hero__title)
+  👉 Add Modifiers with -- (e.g. .hero--dark)
+  👉 Avoid styling by tag name inside this section
+*/
+
+/* Example:
+.hero {
+  padding: var(--space-5);
+  background-color: var(--color-accent);
+}
+
+.hero__title {
+  font-size: 2rem;
+}
+
+.hero--dark {
+  background-color: #111;
+  color: #fff;
+}
+*/
