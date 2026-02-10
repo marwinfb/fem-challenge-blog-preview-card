@@ -176,8 +176,11 @@ footer {
 .card__title a:hover,
 .card__title a:focus {
   color: var(--color-bg);
-  outline: 2px solid var(--color-bg);
-  outline-offset: 2px;
+}
+
+.card__title a:focus {
+  outline: 2px solid var(--color-primary-gray-950);
+  outline-offset: 4px;
 }
 
 .card__description {
